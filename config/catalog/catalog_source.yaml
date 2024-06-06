@@ -12,7 +12,7 @@ metadata:
   namespace: system
 spec:
   sourceType: grpc
-  image: catalog-source:latest
+  image: docker.io/ayushsatyam146/operator-catalog:v0.13.0-rc0
   displayName: Shipwright Operator Catalog
   publisher: The Shipwright Contributors
   updateStrategy:

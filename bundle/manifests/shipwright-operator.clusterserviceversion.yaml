@@ -19,8 +19,9 @@ metadata:
     categories: Developer Tools
     certified: "false"
     containerImage: ko://github.com/shipwright-io/operator
+    createdAt: "2024-06-06T07:26:05Z"
     description: Shipwright is a framework for building container images on Kubernetes.
-    operators.operatorframework.io/builder: operator-sdk-v1.17.0+git
+    operators.operatorframework.io/builder: operator-sdk-v1.34.1
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
     repository: https://github.com/shipwright-io/operator
     support: The Shipwright Contributors
@@ -646,7 +647,10 @@ spec:
           - create
         serviceAccountName: shipwright-operator
       deployments:
-      - name: shipwright-operator
+      - label:
+          app: shipwright-operator
+          control-plane: controller-manager
+        name: shipwright-operator
         spec:
           replicas: 1
           selector:

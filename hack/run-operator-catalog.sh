@@ -39,10 +39,10 @@ fi
 
 function add_kustomizations() {
     echo "Adding replacements not supported by kustomize"
-    ${SED_BIN} -i -E "s|image: (.+)$|image: ${CATALOG_IMG}|g" config/catalog/catalog_source.yaml
-    ${SED_BIN} -i -E "s|startingCSV: (.+)$|startingCSV: shipwright-operator.v${CSV_VERSION}|g" config/subscription/subscription.yaml
-    ${SED_BIN} -i -E "s|sourceNamespace: (.+)$|sourceNamespace: ${CATALOG_NAMESPACE}|g" config/subscription/subscription.yaml
-    ${SED_BIN} -i -E "s|source: (.+)$|source: ${NAME_PREFIX}operator|g" config/subscription/subscription.yaml
+    ${SED_BIN} -i "" -E "s|image: (.+)$|image: ${CATALOG_IMG}|g" config/catalog/catalog_source.yaml
+    ${SED_BIN} -i "" -E "s|startingCSV: (.+)$|startingCSV: shipwright-operator.v${CSV_VERSION}|g" config/subscription/subscription.yaml
+    ${SED_BIN} -i "" -E "s|sourceNamespace: (.+)$|sourceNamespace: ${CATALOG_NAMESPACE}|g" config/subscription/subscription.yaml
+    ${SED_BIN} -i "" -E "s|source: (.+)$|source: ${NAME_PREFIX}operator|g" config/subscription/subscription.yaml
 
     echo "Applying catalog source and subscription from kustomize"
 

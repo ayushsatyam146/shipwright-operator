@@ -35,7 +35,7 @@ cp -r test/catalog _output/catalog
 
 echo "Rendering bundle image into the candidate catalog"
 # Replace the placeholder bundle name for the "candidate" OLM subscription channel
-${SED_BIN} -i -E 's|"name": "shipwright-operator-latest"|"name": "shipwright-operator.v'"${CSV_VERSION}"'"|g' "${channelSpec}"
+${SED_BIN} -i "" -E 's|"name": "shipwright-operator-latest"|"name": "shipwright-operator.v'"${CSV_VERSION}"'"|g' "${channelSpec}"
 # Render the OLM content from the existing bundle image (for local testing/CI)
 ${OPM_BIN} render "${BUNDLE_IMG}" --use-http="${USE_HTTP}"> ${bundleSpec}
 
